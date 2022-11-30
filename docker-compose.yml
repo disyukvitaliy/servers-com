@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+    network_mode: host
+    command: puma
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+  schedule:
+    build:
+      context: .
+    network_mode: host
+    command: ruby config/schedule.rb
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+  redis:
+    image: redis:5.0.7
+    network_mode: host
+    volumes:
+      - redis:/data
+volumes:
+  redis:

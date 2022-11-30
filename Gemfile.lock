@@ -1,0 +1,69 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    concurrent-ruby (1.1.10)
+    connection_pool (2.3.0)
+    dry-configurable (1.0.1)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
+    dry-core (1.0.0)
+      concurrent-ruby (~> 1.0)
+      zeitwerk (~> 2.6)
+    dry-inflector (1.0.0)
+    dry-initializer (3.1.1)
+    dry-logic (1.5.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
+    dry-schema (1.13.0)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 1.0, >= 1.0.1)
+      dry-core (~> 1.0, < 2)
+      dry-initializer (~> 3.0)
+      dry-logic (>= 1.5, < 2)
+      dry-types (>= 1.7, < 2)
+      zeitwerk (~> 2.6)
+    dry-types (1.7.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0, < 2)
+      dry-inflector (~> 1.0, < 2)
+      dry-logic (>= 1.4, < 2)
+      zeitwerk (~> 2.6)
+    et-orbi (1.2.7)
+      tzinfo
+    fugit (1.7.2)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
+    net-ping (2.0.8)
+    nio4r (2.5.8)
+    puma (6.0.0)
+      nio4r (~> 2.0)
+    raabro (1.4.0)
+    rack (3.0.1)
+    redis (5.0.5)
+      redis-client (>= 0.9.0)
+    redis-client (0.11.2)
+      connection_pool
+    rufus-scheduler (3.8.2)
+      fugit (~> 1.1, >= 1.1.6)
+    tzinfo (2.0.5)
+      concurrent-ruby (~> 1.0)
+    zeitwerk (2.6.6)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  concurrent-ruby (~> 1.1.10)
+  dry-schema (~> 1.13.0)
+  net-ping (~> 2.0.8)
+  puma (~> 6.0.0)
+  rack (~> 3.0.1)
+  redis (~> 5.0.5)
+  rufus-scheduler (~> 3.8.2)
+
+RUBY VERSION
+   ruby 3.1.2p20
+
+BUNDLED WITH
+   2.3.23

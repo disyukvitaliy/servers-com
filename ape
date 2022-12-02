@@ -7,6 +7,7 @@ case $1 in
   stop) docker compose stop;;
   build) docker compose build;;
   bash)	docker compose run --rm backend bash;;
+  migrate)	docker compose run --rm backend rake db:migrate;;
   console | c) docker compose run --rm backend irb -r ./initializer.rb;;
   "") echo -e "${RED}Command wasn't passed${NC}" && exit 1;;
   *) echo -e "${RED}There is no command {$1}${NC}" && exit 1;;

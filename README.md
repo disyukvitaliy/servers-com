@@ -24,7 +24,13 @@ docker compose -v
 ./ape build
 ```
 
-5. Start the project
+5. Apply migrations
+
+```sh
+./ape migrate
+```
+
+6. Start the project
 
 ```sh
 ./ape up

@@ -9,6 +9,7 @@ services:
       - .:/app
     depends_on:
       - redis
+      - postgres
   schedule:
     build:
       context: .
@@ -18,10 +19,20 @@ services:
       - .:/app
     depends_on:
       - redis
+      - postgres
   redis:
     image: redis:5.0.7
     network_mode: host
     volumes:
       - redis:/data
+  postgres:
+    image: postgres:15-alpine
+    network_mode: host
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
 volumes:
   redis:
+  postgres:

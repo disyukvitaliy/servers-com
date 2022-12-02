@@ -36,6 +36,7 @@ GEM
       raabro (~> 1.4)
     net-ping (2.0.8)
     nio4r (2.5.8)
+    pg (1.4.5)
     puma (6.0.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
@@ -46,6 +47,7 @@ GEM
       connection_pool
     rufus-scheduler (3.8.2)
       fugit (~> 1.1, >= 1.1.6)
+    sequel (5.63.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     zeitwerk (2.6.6)
@@ -54,13 +56,14 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  concurrent-ruby (~> 1.1.10)
   dry-schema (~> 1.13.0)
   net-ping (~> 2.0.8)
+  pg (~> 1.4.5)
   puma (~> 6.0.0)
   rack (~> 3.0.1)
   redis (~> 5.0.5)
   rufus-scheduler (~> 3.8.2)
+  sequel (~> 5.63.0)
 
 RUBY VERSION
    ruby 3.1.2p20

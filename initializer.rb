@@ -1,6 +1,5 @@
 require 'redis'
-require 'sequel/core'
-require 'sequel/model'
+require 'sequel'
 
 $redis = Redis.new
 $db = Sequel.connect(
@@ -11,4 +10,9 @@ $db = Sequel.connect(
   password: 'postgres'
 )
 
-Dir[File.join(__dir__, 'app', '**', '*.rb')].each { |file| require file }
+Dir[File.join(__dir__, 'app', '**', '*.rb')].each do |path|
+  autoload(
+    path.sub('.rb', '').split('/').last.split('_').collect!(&:capitalize!).join,
+    path
+  )
+end

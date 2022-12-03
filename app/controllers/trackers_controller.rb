@@ -17,14 +17,14 @@ class TrackersController < BaseController
   private
 
   def index
-    reply(trackers: TrackedIPList.instance.all.map { |ip| { ip: ip } })
+    reply(trackers: TrackedIpList.instance.all.map { |ip| { ip: ip } })
   end
 
   def create(params)
     schema_check = schema.call(params)
 
     if schema_check.success?
-      TrackedIPList.instance.save(params['ip'])
+      TrackedIpList.instance.save(params['ip'])
       head(204)
     else
       reply_with_errors(schema_check)
@@ -35,7 +35,7 @@ class TrackersController < BaseController
     schema_check = schema.call(params)
 
     if schema_check.success?
-      TrackedIPList.instance.delete(params['ip'])
+      TrackedIpList.instance.delete(params['ip'])
       head(204)
     else
       reply_with_errors(schema_check)

@@ -1,6 +1,6 @@
 require 'singleton'
 
-class TrackedIPList
+class TrackedIpList
   include Singleton
 
   KEY = 'tracked_ips'

@@ -5,7 +5,7 @@ class TrackerStatisticsCollector
   MAX_THREADS = 50
 
   def call
-    jobs = Queue.new(TrackedIPList.instance.all)
+    jobs = Queue.new(TrackedIpList.instance.all)
 
     threads = [jobs.length / IPS_PER_THREAD, MAX_THREADS].min
 
@@ -13,13 +13,18 @@ class TrackerStatisticsCollector
 
     workers = threads.times.map do
       Thread.new do
-        statistics = {}
+        statistics = []
         icmp = Net::Ping::ICMP.new(nil, 7)
         while ip = jobs.pop(true)
-          statistics[ip] = icmp.ping(ip)
+          delay = icmp.ping(ip)
+          statistics.push([
+            ip,
+            delay ? delay * 1000 : nil,
+            Time.now
+          ])
         end
       rescue ThreadError
-        # ...saving statistics
+        Ping.import([:ip, :delay, :created_at], statistics)
       end
     end
 

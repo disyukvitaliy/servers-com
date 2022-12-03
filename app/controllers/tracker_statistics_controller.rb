@@ -8,7 +8,7 @@ class TrackerStatisticsController < BaseController
     schema_check = schema.call(request.params)
 
     if schema_check.success?
-      reply(statistics: {})
+      reply(statistics: TrackerStatisticsQuery.new(request.params).call.to_hash)
     else
       reply({ errors: schema_check.errors.to_hash }, 422)
     end

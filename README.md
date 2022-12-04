@@ -36,8 +36,27 @@ docker compose -v
 ./ape up
 ```
 
-### Testing
-An automatic testing is not supported yet but you can do that manually on the running project
+### Auto testing
+
+Create test db
+
+```sh
+docker compose run --rm postgres createdb -h localhost -U postgres app_test
+````
+
+Apply migrations
+
+```sh
+docker compose run --rm -e APP_ENV=test backend rake db:migrate
+```
+
+Run tests
+
+```sh
+./ape test
+```
+
+### Manual testing
 
 To add an IP address to the list of tracked ones:
 

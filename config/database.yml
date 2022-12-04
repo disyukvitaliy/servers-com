@@ -1,0 +1,12 @@
+development:
+  adapter: postgres
+  host: localhost
+  database: postgres
+  user: postgres
+  password: postgres
+test:
+  adapter: postgres
+  host: localhost
+  database: app_test
+  user: postgres
+  password: postgres

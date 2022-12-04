@@ -1,13 +1,13 @@
+require 'yaml'
 require 'redis'
 require 'sequel'
 
-$redis = Redis.new
+$redis = Redis.new(
+  YAML.load(File.read('config/redis.yml'))[ENV['APP_ENV'] || 'development']
+)
+
 $db = Sequel.connect(
-  adapter: 'postgres',
-  host: 'localhost',
-  database: 'postgres',
-  user: 'postgres',
-  password: 'postgres'
+  YAML.load(File.read('config/database.yml'))[ENV['APP_ENV'] || 'development']
 )
 
 Dir[File.join(__dir__, 'app', '**', '*.rb')].each do |path|

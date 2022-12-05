@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'config/application'
 
 protected_app = Rack::Auth::Basic.new(App.instance, 'main') do |username, password|

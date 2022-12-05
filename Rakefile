@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 namespace :db do
   desc 'Run migrations'
-  task :migrate, [:version] do |t, args|
+  task :migrate, [:version] do |_t, args|
     require_relative 'initializer'
     require 'sequel/core'
     Sequel.extension :migration

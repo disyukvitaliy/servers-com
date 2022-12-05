@@ -1,5 +1,7 @@
-class TrackerStatisticsQuery < Struct.new(:params)
-  def call
+# frozen_string_literal: true
+
+TrackerStatisticsQuery = Struct.new(:params) do
+  def call # rubocop:disable Metrics/AbcSize
     Ping.where(ip: params['ip'], created_at: params['start']..params['end']).select(
       Sequel.function(:min, :delay).as(:delay_min),
       Sequel.function(:max, :delay).as(:delay_max),

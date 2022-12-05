@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Sequel.migration do
   change do
     create_table(:pings) do
@@ -5,7 +7,7 @@ Sequel.migration do
       String :ip, null: false
       Integer :delay
       DateTime :created_at, null: false
-      index [:ip, :created_at]
+      index %i[ip created_at]
     end
   end
 end

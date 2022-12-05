@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 
 describe '/tracker_statistics' do
@@ -6,12 +8,12 @@ describe '/tracker_statistics' do
   after { Ping.truncate }
 
   describe 'GET' do
-    subject { app.get('/tracker_statistics', params: params) }
+    subject { app.get('/tracker_statistics', params:) }
 
     describe 'Success' do
       let(:params) do
         {
-          ip: '127.0.0.0', start: Time.now - 60 * 60 * 24 * 30, end: Time.now
+          ip: '127.0.0.0', start: Time.now - (60 * 60 * 24 * 30), end: Time.now
         }
       end
 

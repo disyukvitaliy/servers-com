@@ -1,0 +1,16 @@
+AllCops:
+  NewCops: enable
+
+# TODO: think about this
+Style/GlobalVars:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/BlockLength:
+  Exclude:
+    - test/**/*

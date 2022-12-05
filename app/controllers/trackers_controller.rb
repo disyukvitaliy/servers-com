@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'base_controller'
 require 'dry-schema'
 
@@ -17,7 +19,7 @@ class TrackersController < BaseController
   private
 
   def index
-    reply(trackers: TrackedIpList.instance.all.map { |ip| { ip: ip } })
+    reply(trackers: TrackedIpList.instance.all.map { |ip| { ip: } })
   end
 
   def create(params)

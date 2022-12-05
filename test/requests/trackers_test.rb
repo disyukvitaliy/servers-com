@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 
 describe '/trackers' do
@@ -16,7 +18,7 @@ describe '/trackers' do
   end
 
   describe 'POST' do
-    subject { app.post('/trackers', params: params) }
+    subject { app.post('/trackers', params:) }
 
     describe 'Success' do
       let(:params) do
@@ -42,7 +44,7 @@ describe '/trackers' do
   end
 
   describe 'DELETE' do
-    subject { app.delete('/trackers', params: params) }
+    subject { app.delete('/trackers', params:) }
 
     describe 'Success' do
       let(:params) do

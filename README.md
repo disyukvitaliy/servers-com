@@ -2,6 +2,8 @@
 
 This project is backend engineer challenge for the https://www.servers.com/ company.
 
+[Requirements](requirements.md)
+
 ### Development
 
 1. Set SSH key on Github using instructions here: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
@@ -85,6 +87,7 @@ curl -d 'ip=127.0.0.0' -d 'start=29-11-2022' -d 'end=30-11-2022' -u 'admin:secre
 ### TODO
 
 * Chose a Time series database which will suit our use case.
+* Improve statistics collector. Find more reliable and efficient decision then just Queue + Thread
 * There are lots of improvements to do.
 
 ### ape file
